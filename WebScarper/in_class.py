@@ -3,7 +3,7 @@ import requests
 
 class WebScraper:
     def __init__(self):
-        self.item_urls = []  # Renamed variable
+        self.item_urls = [] 
         self.base_url = "https://999.md/ro/list/real-estate/apartments-and-rooms?o_30_241=894&applied=1&eo=12900&eo=12912&eo=12885&eo=13859&ef=32&ef=33&o_33_1=776"  # Renamed variable
         self.max_page_number = 15
         self.filename = "urls.txt"
