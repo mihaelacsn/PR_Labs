@@ -26,4 +26,4 @@ for url in urls:
     scrape_url(url)
 
 with open(FILENAME, "w", encoding="utf-8") as file:
-    json.dump(ITEM_LIST, file, indent=4, ensure_ascii=False)
+    json.dump(CHARACTERISTICS, file, indent=4, ensure_ascii=False)
