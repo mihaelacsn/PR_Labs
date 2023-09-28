@@ -1,5 +1,4 @@
 from bs4 import BeautifulSoup
-import time
 import requests
 
 class WebScraper:
@@ -9,35 +8,35 @@ class WebScraper:
         self.max_page_number = 15
         self.filename = "urls.txt"
 
-    def start_requests(self, page_number="1"):
-        return self.parse_item(page_number)
+    def start_scraping(self, page_number="1"):
+        return self.parse_page(page_number)
 
-    def parse_item(self, page_number):
+    def parse_page(self, page_number):
         url = self.base_url + f"&page={page_number}"
         response = requests.get(url)
         soup = BeautifulSoup(response.text, "html.parser")
 
-        items = [a["href"] for a in soup.select(".ads-list-photo-item-title a")]
+        item_links = [a["href"] for a in soup.select(".ads-list-photo-item-title a")]
 
-        self.item_urls.extend(items)
+        self.item_urls.extend(item_links)
 
         if int(page_number) + 1 <= self.max_page_number:
-            return self.parse_item(str(int(page_number) + 1))
+            return self.parse_page(str(int(page_number) + 1))
         else:
-            return self.get_items()
+            return self.save_items()
 
-    def get_items(self):
-        final_list = ["https://999.md" + link for link in self.item_urls if "/booster" not in link]
+    def save_items(self):
+        clean_list = ["https://999.md" + link for link in self.item_urls if "/booster" not in link]
 
         with open(self.filename, "w") as file:
-            for link in final_list:
+            for link in clean_list:
                 file.write(link + "\n")
 
-        return {"links": final_list}
+        return {"links": clean_list}
 
 def main():
     scraper = WebScraper()
-    scraper.start_requests()
+    scraper.start_scraping()
 
 if __name__ == "__main__":
     main()
