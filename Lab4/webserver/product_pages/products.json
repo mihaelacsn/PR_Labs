@@ -1,0 +1,32 @@
+[
+    { "id": 1,
+      "name" : "Fluent Python: Clear, Concise, and Effective Programming",
+      "author" : "Luciano Ramalho",
+      "price" : 39.95
+    },
+    { "id": 2,
+      "name" : "Introducing Python: Modern Computing in Simple Packages",
+      "author" : "Bill Lubanovic",
+      "price" : 27.49
+    },
+    { "id": 3,
+      "name" : "A brave new world",
+      "author" : "Aldous Huxley",
+      "price" : 10.34
+    },
+    { "id": 4,
+      "name" : "1984",
+      "author" : "George Orwell",
+      "price" : 6.75
+    },
+    { "id": 5,
+      "name" : "Meditations: A New Translation",
+      "author" : "Marcus Aurelius",
+      "price" : 7.99
+    },
+    { "id": 6,
+      "name" : "A History of Western Philosophy",
+      "author" : "Bertrand Russell",
+      "price" : 3.99
+    }
+]
